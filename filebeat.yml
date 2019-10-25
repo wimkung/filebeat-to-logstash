@@ -28,7 +28,7 @@ setup.template.settings:
 #----------------------------- Logstash output --------------------------------
 output.logstash:
   # The Logstash hosts
-  hosts: ['${LOGSTASH_HOST}:LOGSTASH_PORT']
+  hosts: ['${LOGSTASH_HOST}:${LOGSTASH_PORT}']
 
 #================================ Processors =====================================
 
