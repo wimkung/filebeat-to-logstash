@@ -1,9 +1,11 @@
 # a customized filebeat docker image based on offical filebeat
 FROM docker.elastic.co/beats/filebeat:7.4.0
 
-# we start filebeat under root, because we need the permission to
-# read the information from the docker container path, mounted inside it
-USER root
-
 # modified filebeat config
 COPY filebeat.yml /usr/share/filebeat/filebeat.yml
+
+USER root
+
+RUN chown root:filebeat /usr/share/filebeat/filebeat.yml
+
+USER filebeat
